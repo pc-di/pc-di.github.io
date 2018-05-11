@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="noindex, nofollow">
+	<title>Page de démo et de test pour les notifications Web</title>
+	<style>
+	body{	font-family:"Open Sans", sans-serif; font-size: 14px; background-color: #eeeeee;}
+	.container{	width: 800px;	margin:0 auto; padding:15px; background-color: #ffffff; border-radius: 5px;}
+	.text-center{ text-align: center; }
+	.form-textbox{ padding:5px;font-size: 14px;}
+	.exemples { padding:10px 0;}
+	.exemples div:first-child { width:50%; float:left;}
+	.exemples div { text-align:center;}
+	</style>
+  <!-- Début - Les scripts de notification Web de Dialog Insight
+	Installez ce code sur toutes les pages Web que vous souhaitez proposer au visiteur pour accepter la notification Web -->
+	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-messaging.js"></script>
+	<script src="/DI.WebPush-1.0.min.js"></script> <!-- Fichier fourni par Dialog Insight. Mettez-le à la racine de votre site ! -->
+  <link href="/manifest.json" rel="manifest" /> <!-- Fichier fourni par Dialog Insight. Mettez-le à la racine de votre site ! -->
+  <!-- Fin - Les scripts de notification Web de Dialog Insight -->
+</head>
+<body>
+<div class="container">
+	<img src="https://cdn.ofsys.com/T/OFSYS/H/C2/1255324/y1wjIJ/logo-di-green-grey-148x53.png" alt"Dialog Insight" />
+	<h2>Page de démo et de test pour les notifications Web</h2>
+	<p>Cette page ne fonctionne pas localement. Vous devez d'abord télécharger et copier à la racine de votre site Web :</p>
+	<ul>
+		<li>les fichiers fournis sur la plateforme Dialog Insight</li>
+		<li>cette page de démonstration et de test</li>
+	</ul>
+	<p>Ensuite visitez cette page à partir de votre site Web.</p><br />
+
+  <p><strong>Exemple #1 - onclick="DI.WebPush.RequestPermission();"</strong><br />Pour déclencher la demande d'autorisation du navigateur avec un button :
+	<input type="button" value="Je désire recevoir les notifications" onclick="DI.WebPush.RequestPermission();" /></p>
+
+  <p><strong>Exemple #2 - onclick="DI.WebPush.RequestPermission();"</strong><br />Pour déclencher la demande d'autorisation du navigateur avec un lien texte :
+	<a href="#" onclick="DI.WebPush.RequestPermission();">Je désire recevoir les notifications</a></p>
+	<div class="exemples">
+		<div>Exemple sur Chrome<br /><img src="https://cdn.dialoginsight.com/OFSYS/admin/webpush/WebPush-Browser-Authorization-Chrome.jpg" /></div>
+		<div>Exemple sur Firefox<br /><img src="https://cdn.dialoginsight.com/OFSYS/admin/webpush/WebPush-Browser-Authorization-Firefox.jpg" /></div>
+	</div>
+
+	<p><strong>Note</strong><br />Si la demande d'autorisation ne s'affiche pas, c’est qu’elle est déjà Autorisée ou Bloquée. Assurez-vous d’avoir choisi la valeur « Demander », dans Chrome, ou de n’avoir choisi aucune valeur, dans Firefox.</p>
+
+	<div class="exemples">
+		<div>Exemple sur Chrome<br /><img src="https://cdn.dialoginsight.com/OFSYS/admin/webpush/WebPush-Browser-Permission-Chrome.jpg" /></div>
+		<div>Exemple sur Firefox<br /><img src="https://cdn.dialoginsight.com/OFSYS/admin/webpush/WebPush-Browser-Permission-Firefox.jpg" /></div>
+	</div>
+
+  <p><strong>Associer un contact à une notification - onclick="DI.WebPush.Identify("f_EMail", "Valeur");"</strong><br />
+		Commencez par ajouter le contact auquel envoyer le test dans le projet Dialog Insight où sont configurés les notifications Web, tapez
+		ensuite le code de la clé unique de votre projet ici et cliquez sur « Associer ». Vous pourrez ensuite créer une notification Web
+		dans Dialog Insight et envoyer un test à ce contact.</p>
+	<input id="email" type="text" class="form-textbox" style="width:300px;" />
+	<input type="button" value="Associer" onclick="DI.WebPush.Identify('f_EMail', document.getElementById('email').value);" />
+</div><br /><br /> <br />
+</body>
+</html>
