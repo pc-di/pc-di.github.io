@@ -2487,9 +2487,9 @@ if (window['DI'].WebPush == null) window['DI'].WebPush = {};
 {
 	"use strict";
 
-	var config = "{apiKey: 'AIzaSyDhT3n_qnl8xoxAlbGqb2n2VRwjwcBJVE0', authDomain: 'demodi-8272d.firebaseapp.com', databaseURL: 'https://demodi-8272d.firebaseio.com',projectId: 'demodi-8272d', storageBucket: 'demodi-8272d.appspot.com', messagingSenderId: '165900517247'}";
+	var config = {apiKey: 'AIzaSyDhT3n_qnl8xoxAlbGqb2n2VRwjwcBJVE0', authDomain: 'demodi-8272d.firebaseapp.com', databaseURL: 'https://demodi-8272d.firebaseio.com',projectId: 'demodi-8272d', storageBucket: 'demodi-8272d.appspot.com', messagingSenderId: '165900517247'};
 	var applicationKey = '6021:C9gAcGRYg2FF8ca46Hl4MVcPRzHxogPO';
-	var strBrowserTypes = '{"Unknown":0,"Chrome":4,"Firefox":8}';
+	var strBrowserTypes = {"Unknown":0,"Chrome":4,"Firefox":8};
 	var g_debug = false;
 
 	firebase.initializeApp(config);
