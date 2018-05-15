@@ -1,4 +1,4 @@
-// NOTE IMPORTANTE: ce fichier n'est pas prévu pour être utilisé seul. Il est prévu pour être inclus dans un package minifié
+// NOTE IMPORTANTE: ce fichier n'est pas prï¿½vu pour ï¿½tre utilisï¿½ seul. Il est prï¿½vu pour ï¿½tre inclus dans un package minifiï¿½
 // Voir /tests/mmg/Minify.aspx
 
 // pseudo-namespaces
@@ -33,7 +33,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 	function isNumber(n) { return !isNaN(parseFloat(n)) && isFinite(n); }
 	util.isNumber = isNumber;
 
-	/** Vérifie si un nombre est un nombre entier */
+	/** Vï¿½rifie si un nombre est un nombre entier */
 	function isInt(n) { return isFinite(n) && n % 1 === 0; }
 	util.isInt = isInt;
 
@@ -72,16 +72,16 @@ if (window['DI'].util == null) window['DI'].util = {};
 	}
 	util.methodRef = methodRef;
 
-	/** Déterminer si le navigateur est IE <= 8 */
+	/** Dï¿½terminer si le navigateur est IE <= 8 */
 	util.isIE8OrOlder = function ()
 	{
 		return (window.attachEvent != null && window.addEventListener == null);
 	};
 
-	/** Déterminer si le navigateur est IE <= 9 */
+	/** Dï¿½terminer si le navigateur est IE <= 9 */
 	util.isIE9OrOlder = function ()
 	{
-		// "performance" a été introduit sur IE10, on peut se servir de ça pour détecter le browser
+		// "performance" a ï¿½tï¿½ introduit sur IE10, on peut se servir de ï¿½a pour dï¿½tecter le browser
 		return util.isIE8OrOlder() || (document.documentMode != null && (window.performance == null || document.documentMode < 10));
 	};
 
@@ -89,7 +89,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 	{
 		if (strInt == null || strInt === '' || !isFinite(strInt) || (strInt % 1) !== 0)
 			throw new Error("Not an int : '" + strInt + "'");
-		return parseInt(strInt, '10'); // il FAUT spécifier la base 10, sinon certains browsers pensent qu'un input comme '07' est en octal...
+		return parseInt(strInt, '10'); // il FAUT spï¿½cifier la base 10, sinon certains browsers pensent qu'un input comme '07' est en octal...
 	};
 
 	util.getURLParameters = function ()
@@ -130,7 +130,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 	};
 
 	/** Formatte un nombre entier ou flottant selon le format "openfield" (espaces aux milliers, deux chiffres
-	  * après la virgule si pertinent)
+	  * aprï¿½s la virgule si pertinent)
 	  */
 	util.formatNumber = function (n, decimal, showDecimalsEvenIfZero)
 	{
@@ -141,7 +141,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 				num = Math.pow(10, decimal);
 			else
 				num = 100;
-			// float. Arrondir au nombre de digit passé en paramètre après la virgule
+			// float. Arrondir au nombre de digit passï¿½ en paramï¿½tre aprï¿½s la virgule
 			n = Math.round(n * num) / num;
 		}
 
@@ -168,10 +168,10 @@ if (window['DI'].util == null) window['DI'].util = {};
 	};
 
 	/** Formatte un nombre entier ou flottant selon le format "openfield" (espaces aux milliers, deux chiffres
-	* après la virgule si pertinent)
+	* aprï¿½s la virgule si pertinent)
 	*
-	* Similaire à 'formatNumber', mais contrairement à celle ci les décimales seront obligatoirement
-	* affichées même si elles valent 0
+	* Similaire ï¿½ 'formatNumber', mais contrairement ï¿½ celle ci les dï¿½cimales seront obligatoirement
+	* affichï¿½es mï¿½me si elles valent 0
 	*/
 	util.formatFloatNumber = function (n, decimal)
 	{
@@ -183,7 +183,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 			num = Math.pow(10, decimal);
 		else
 			num = 100;
-		// float. Arrondir au nombre de digit passé en paramètre après la virgule
+		// float. Arrondir au nombre de digit passï¿½ en paramï¿½tre aprï¿½s la virgule
 		n = Math.round(n * num) / num;
 
 		var sRegExp = new RegExp('(-?[0-9]+)([0-9]{3})');
@@ -228,14 +228,14 @@ if (window['DI'].util == null) window['DI'].util = {};
 
 	/**
 	* @param options.url {String} - requis
-	* @param options.data {Dictionary} - si method==POST, les paramètres à poster
-	* @param options.success {Function} - Callback appelé quand la réponse est reçue.
+	* @param options.data {Dictionary} - si method==POST, les paramï¿½tres ï¿½ poster
+	* @param options.success {Function} - Callback appelï¿½ quand la rï¿½ponse est reï¿½ue.
 	*			Signature: function(string responseText, XMLHttpRequest request) (optionnel)
-	* @param options.error {Function} - Callback appelé en cas d'erreur http
+	* @param options.error {Function} - Callback appelï¿½ en cas d'erreur http
 				Signature: function(int status, string responseText, XMLHttpRequest request) (optionnel)
 	* @param options.method {string} - "GET" ou "POST" (optionnel. default: "POST") 
-	*			Si vous voulez utiliser GET, ajoutez manuellement les paramètres à l'URL. 
-	* @param options.timeout {int} durée du timeout en millisecondes - (optionnel, défaut: 0 [aucun timeout])
+	*			Si vous voulez utiliser GET, ajoutez manuellement les paramï¿½tres ï¿½ l'URL. 
+	* @param options.timeout {int} durï¿½e du timeout en millisecondes - (optionnel, dï¿½faut: 0 [aucun timeout])
 	*/
 	util.net.ajax = function (options)
 	{
@@ -263,16 +263,16 @@ if (window['DI'].util == null) window['DI'].util = {};
 			ajaxRequest.timeout = options.timeout;
 
 		var sendData = null;
-		// Note: avec IE10+, ceci pourra être remplacé par l'objet FormData
+		// Note: avec IE10+, ceci pourra ï¿½tre remplacï¿½ par l'objet FormData
 		if (options.data != null)
 		{
 			sendData = "";
-			if (is('String', options.data)) // si déjà une string, utiliser tel quel (e.g. texte, JSON, XML)
+			if (is('String', options.data)) // si dï¿½jï¿½ une string, utiliser tel quel (e.g. texte, JSON, XML)
 			{
-				ajaxRequest.setRequestHeader("Content-type", "text/plain"); // TODO: supporter un datatype plus précis?
+				ajaxRequest.setRequestHeader("Content-type", "text/plain"); // TODO: supporter un datatype plus prï¿½cis?
 				sendData = options.data;
 			}
-			else if (is('Object', options.data)) // dictionnaire de propriétés, utiliser form encoding
+			else if (is('Object', options.data)) // dictionnaire de propriï¿½tï¿½s, utiliser form encoding
 			{
 				if (method == 'POST')
 					ajaxRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -290,11 +290,11 @@ if (window['DI'].util == null) window['DI'].util = {};
 		ajaxRequest.send(sendData);
 	};
 
-	/** Requête ajax cross-domaine en utilisant le standard CORS 
+	/** Requï¿½te ajax cross-domaine en utilisant le standard CORS 
 	* @param {string} options.url
-	* @param {string} options.data - Le format JSON est suggéré
-	* @param {Function} options.success - Callback à appeler en cas de réception de la réponse avec succès, reçoit un paramètre: (string responseText)
-	* @param {Function} options.error - Callback appelé en cas d'erreur http. Reçoit les paramètres: (int status, string text)
+	* @param {string} options.data - Le format JSON est suggï¿½rï¿½
+	* @param {Function} options.success - Callback ï¿½ appeler en cas de rï¿½ception de la rï¿½ponse avec succï¿½s, reï¿½oit un paramï¿½tre: (string responseText)
+	* @param {Function} options.error - Callback appelï¿½ en cas d'erreur http. Reï¿½oit les paramï¿½tres: (int status, string text)
 	*/
 	util.net.corsAjax = function (options)
 	{
@@ -306,7 +306,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 
 			if (gotXDomain && !gotStdCors)
 			{
-				// IE 8 et 9 n'implémentent pas le standard, mais ont l'extension XDomainRequest qui fait un peu la même chose 
+				// IE 8 et 9 n'implï¿½mentent pas le standard, mais ont l'extension XDomainRequest qui fait un peu la mï¿½me chose 
 				var xdr = new XDomainRequest();
 				xdr.open("POST", options.url);
 				//xdr.onprogress = function () { };
@@ -377,12 +377,12 @@ if (window['DI'].util == null) window['DI'].util = {};
 
 	var datetime = util.datetime = {};
 
-	/** Construit un objet Date avec une validation améliorée par rapport à l'objet natif de javascript, retourne null si la date est invalide */
+	/** Construit un objet Date avec une validation amï¿½liorï¿½e par rapport ï¿½ l'objet natif de javascript, retourne null si la date est invalide */
 	datetime.buildDateWithStrictValidation = function (yy, MM, dd, HH, mm, ss)
 	{
 		var date = new Date(yy, MM, dd, HH, mm, ss, 0 /* milliseconds */);
 
-		// L'objet javascript Date va essayer de s'auto-ajuster quand l'input est invalide. On veut pas ça.
+		// L'objet javascript Date va essayer de s'auto-ajuster quand l'input est invalide. On veut pas ï¿½a.
 		if (date.getFullYear() != yy || date.getMonth() != MM || date.getDate() != dd ||
 			date.getHours() != HH || date.getMinutes() != mm || date.getSeconds() != ss)
 		{
@@ -396,7 +396,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 
 	/** Parse une date au format 'yyyy.MM.dd HH:mm:ss' ou 'yyyy.MM.dd HH:mm' ou 'yyyy.MM.dd'
 	* Support aussi les formats de workflow : 'yyyy-MM-dd HH:mm:ss' ou 'yyyy-MM-dd HH:mm' ou 'yyyy-MM-dd'
-	* Retourne null si l'input ne correspond pas à un de ces formats
+	* Retourne null si l'input ne correspond pas ï¿½ un de ces formats
 	*/
 	datetime.parseOFSYSDateTime = function (inputString)
 	{
@@ -499,7 +499,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 					{
 						theClass[key] = classContent.static[key];
 
-						// offrir un accès aux members static en passant par "this" aussi
+						// offrir un accï¿½s aux members static en passant par "this" aussi
 						//if (!isOldIE && theClass.prototype[key] == undefined)
 						//{
 						//	(function (key)
@@ -539,8 +539,8 @@ if (window['DI'].util == null) window['DI'].util = {};
 				classInstanciator.Variables = variables;
 				classInstanciator.ClassName = className;
 
-				// ajouter des références aux méthodes du protoype directement sur la classe. Permettra d'aller chercher des références
-				// aux méthodes en faisant "ClassName.MethodName" plutot que le defaut "ClassName.prototype.MethodName"
+				// ajouter des rï¿½fï¿½rences aux mï¿½thodes du protoype directement sur la classe. Permettra d'aller chercher des rï¿½fï¿½rences
+				// aux mï¿½thodes en faisant "ClassName.MethodName" plutot que le defaut "ClassName.prototype.MethodName"
 				for (var methodName in classContent)
 				{
 					var method = classContent[methodName];
@@ -557,7 +557,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 				{
 					return methodRef(this, fn);
 				};
-				//classInstanciator.prototype.CallBaseMethod = function (fnName) // OBSOLETE, utiliser "CallMethod" à la place
+				//classInstanciator.prototype.CallBaseMethod = function (fnName) // OBSOLETE, utiliser "CallMethod" ï¿½ la place
 				//{
 				//	return classInstanciator.BasePrototype[fnName].bind(this);
 				//};
@@ -584,7 +584,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 						{
 							theClass[key] = classContent.static[key];
 
-							// offrir un accès aux members static en passant par "this" aussi
+							// offrir un accï¿½s aux members static en passant par "this" aussi
 							//if (!isOldIE && theClass.prototype[key] == undefined)
 							//{
 							//	(function (key)
@@ -625,7 +625,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 						}
 						else
 						{
-							// Si on arrive pas à y accéder directement, c'est peut-être un getter-setter
+							// Si on arrive pas ï¿½ y accï¿½der directement, c'est peut-ï¿½tre un getter-setter
 							var getter = Object.getOwnPropertyDescriptor(methodList, key).get;
 							var setter = Object.getOwnPropertyDescriptor(methodList, key).set;
 							if (getter != null && setter != null)
@@ -697,7 +697,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 				}
 				else
 				{
-					// Old IE (TODO, éventuellement retirer, en théorie on supporte plus IE8)
+					// Old IE (TODO, ï¿½ventuellement retirer, en thï¿½orie on supporte plus IE8)
 					//for (var key in methodList)
 					//{
 					//	methodList[key].ofsysName = key;
@@ -748,7 +748,7 @@ if (window['DI'].util == null) window['DI'].util = {};
 })(window['DI'].util);
 
 
-// NOTE IMPORTANTE: ce fichier n'est pas prévu pour être utilisé seul. Il est prévu pour être inclus dans un package minifié
+// NOTE IMPORTANTE: ce fichier n'est pas prï¿½vu pour ï¿½tre utilisï¿½ seul. Il est prï¿½vu pour ï¿½tre inclus dans un package minifiï¿½
 // Voir /tests/mmg/Minify.aspx
 
 // pseudo-namespaces
@@ -760,14 +760,14 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 	var $$ = ofsys.dom;
 
 // Select
-	var a = $$.id('element_id'); // Trouver un élément par ID
-	var b = $$.select1('#element_id'); // Trouver un élément par sélecteur CSS
-	var c = $$.selectAll('.ClassName'); // Trouver tous les éléments correspondant à un sélecteur CSS
-	var d = $$.wrap(document.getElementById('element_id')); // Wrap: créer un élément dom à partir d'un élément "natif"
-	var e = a.find1('.Child'); // Trouve exactement un enfant par sélecteur CSS
-	var f = a.findAll('.Child'); // Trouve tous les enfants correspondant à un sélecteur CSS
+	var a = $$.id('element_id'); // Trouver un ï¿½lï¿½ment par ID
+	var b = $$.select1('#element_id'); // Trouver un ï¿½lï¿½ment par sï¿½lecteur CSS
+	var c = $$.selectAll('.ClassName'); // Trouver tous les ï¿½lï¿½ments correspondant ï¿½ un sï¿½lecteur CSS
+	var d = $$.wrap(document.getElementById('element_id')); // Wrap: crï¿½er un ï¿½lï¿½ment dom ï¿½ partir d'un ï¿½lï¿½ment "natif"
+	var e = a.find1('.Child'); // Trouve exactement un enfant par sï¿½lecteur CSS
+	var f = a.findAll('.Child'); // Trouve tous les enfants correspondant ï¿½ un sï¿½lecteur CSS
 
-// Créer
+// Crï¿½er
 	var n = $$.create('div', { 'id': 'mon_div', 'style': { 'color': 'black', 'display': 'inline-block' } });
 	$$.body().append(n);
 
@@ -776,19 +776,19 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 
 // Events
 	$$.onLoad(function () {
-		// Appelé quand tout est chargé
+		// Appelï¿½ quand tout est chargï¿½
 	});
 
 	$$.onReady(function () {
-		// appelé quand tout le HTML est chargé, mais sans attendre les images, le CSS, le javascript async
+		// appelï¿½ quand tout le HTML est chargï¿½, mais sans attendre les images, le CSS, le javascript async
 	});
 
 	$$.id('element_id').on('mousedown', function (evt) {
-		// Appelé sur click
+		// Appelï¿½ sur click
 	});
 
 	$$.id('element_id').on('mousedown', { i: 0, a: "b" }, function (evt, evtData) {
-		// Appelé sur click, avec data custom passé
+		// Appelï¿½ sur click, avec data custom passï¿½
 	});
 	
 	$$.on(document.body, 'keyup', function (evt) {
@@ -822,7 +822,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 
 	OfsysDomElem.prototype =
 		{
-			// ------------------------------------ Requêtes et nav ------------------------------------
+			// ------------------------------------ Requï¿½tes et nav ------------------------------------
 
 			findAll: function (selector)
 			{
@@ -834,7 +834,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return dom._select1(selector, this.elem);
 			},
 
-			/** Retourne le frère suivant de cet élément, ou null s'il n'y en a pas */
+			/** Retourne le frï¿½re suivant de cet ï¿½lï¿½ment, ou null s'il n'y en a pas */
 			nextOrNull: function ()
 			{
 				var elem;
@@ -855,7 +855,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 					return new dom.Elem(elem);
 			},
 
-			/** Retourne le frère suivant de cet élément, ou throw s'il n'y en a pas */
+			/** Retourne le frï¿½re suivant de cet ï¿½lï¿½ment, ou throw s'il n'y en a pas */
 			next: function ()
 			{
 				var elem = this.nextOrNull();
@@ -864,7 +864,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return elem;
 			},
 
-			/** Retourne le frère précédent de cet élément, ou null s'il n'y en a pas */
+			/** Retourne le frï¿½re prï¿½cï¿½dent de cet ï¿½lï¿½ment, ou null s'il n'y en a pas */
 			prevOrNull: function ()
 			{
 				var elem = null;
@@ -885,7 +885,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 					return new dom.Elem(elem);
 			},
 
-			/** Retourne le frère précédent de cet élément, ou throw s'il n'y en a pas */
+			/** Retourne le frï¿½re prï¿½cï¿½dent de cet ï¿½lï¿½ment, ou throw s'il n'y en a pas */
 			prev: function ()
 			{
 				var elem = this.prevOrNull();
@@ -913,7 +913,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return new dom.Elem(this.elem.parentNode);
 			},
 
-			/** Trouve le premier parent de cet élément correspondant au sélecteur passé */
+			/** Trouve le premier parent de cet ï¿½lï¿½ment correspondant au sï¿½lecteur passï¿½ */
 			firstParentMatching: function (selector)
 			{
 				var parentNode = this.elem.parentNode;
@@ -928,7 +928,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return null;
 			},
 
-			// ------------------------------------ Propriétés et CSS ------------------------------------
+			// ------------------------------------ Propriï¿½tï¿½s et CSS ------------------------------------
 
 			addClass: function (className)
 			{
@@ -986,7 +986,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** NOTE: contrairement à jQuery, cette propriété ne supporte PAS les shorthand CSS.
+			/** NOTE: contrairement ï¿½ jQuery, cette propriï¿½tï¿½ ne supporte PAS les shorthand CSS.
 			  * i.e. on ne pas peut aller chercher la valeur de "border-color", on doit aller checher par exemple "border-top-color".
 			  */
 			getStyle: function (name)
@@ -1022,7 +1022,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				}
 			},
 
-			/** Retourne un style local de cet élement, sans appliquer la cascade des styles des parents ou des fichiers CSS */
+			/** Retourne un style local de cet ï¿½lement, sans appliquer la cascade des styles des parents ou des fichiers CSS */
 			getOwnStyle: function (name)
 			{
 				var val;
@@ -1035,7 +1035,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return val;
 			},
 
-			/** Assigne un style à cet élément, e.g. elem.setStyle('color', 'black'); */
+			/** Assigne un style ï¿½ cet ï¿½lï¿½ment, e.g. elem.setStyle('color', 'black'); */
 			setStyle: function (name, value)
 			{
 				if (this.elem.style.setProperty)
@@ -1045,7 +1045,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Assigne un dictionnaire de styles à cet élément, e.g. elem.setStyles({'color': 'black', 'cursor': 'default'}); */
+			/** Assigne un dictionnaire de styles ï¿½ cet ï¿½lï¿½ment, e.g. elem.setStyles({'color': 'black', 'cursor': 'default'}); */
 			setStyles: function (dict)
 			{
 				for (var key in dict)
@@ -1118,49 +1118,49 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 
 			// ------------------------------------ Insertion et suppression ------------------------------------
 
-			/** Ajouter un élément passé en paramètre comme enfant de "this" */
+			/** Ajouter un ï¿½lï¿½ment passï¿½ en paramï¿½tre comme enfant de "this" */
 			append: function (elem)
 			{
 				this.elem.appendChild(elem.elem);
 				return this;
 			},
 
-			/** Ajouter un élément passé en paramètre comme premier enfant de "this" */
+			/** Ajouter un ï¿½lï¿½ment passï¿½ en paramï¿½tre comme premier enfant de "this" */
 			prepend: function (elem)
 			{
 				this.elem.insertBefore(elem.elem, this.elem.firstChild);
 				return this;
 			},
 
-			/** Ajouter cet élément comme enfant du parent passé en paramètre */
+			/** Ajouter cet ï¿½lï¿½ment comme enfant du parent passï¿½ en paramï¿½tre */
 			appendTo: function (parent)
 			{
 				parent.elem.appendChild(this.elem);
 				return this;
 			},
 
-			/** Ajouter un élément passé en paramètre comme enfant de "this", le plaçant juste après l'élément passé en paramètre */
+			/** Ajouter un ï¿½lï¿½ment passï¿½ en paramï¿½tre comme enfant de "this", le plaï¿½ant juste aprï¿½s l'ï¿½lï¿½ment passï¿½ en paramï¿½tre */
 			insertAfter: function (referenceElem)
 			{
 				referenceElem.elem.parentNode.insertBefore(this.elem, referenceElem.elem.nextSibling);
 				return this;
 			},
 
-			/** Ajouter un élément passé en paramètre comme enfant de "this", le plaçant juste avant l'élément passé en paramètre */
+			/** Ajouter un ï¿½lï¿½ment passï¿½ en paramï¿½tre comme enfant de "this", le plaï¿½ant juste avant l'ï¿½lï¿½ment passï¿½ en paramï¿½tre */
 			insertBefore: function (referenceElem)
 			{
 				referenceElem.elem.parentNode.insertBefore(this.elem, referenceElem.elem);
 				return this;
 			},
 
-			/** Retire un élement, dans le but de le détruire */
+			/** Retire un ï¿½lement, dans le but de le dï¿½truire */
 			remove: function ()
 			{
 				var removed = this.elem.parentNode.removeChild(this.elem);
 				this.elem = null;
 			},
 
-			/** Retire un élement, dans le but de le réajouter ailleur */
+			/** Retire un ï¿½lement, dans le but de le rï¿½ajouter ailleur */
 			detach: function ()
 			{
 				this.elem = this.elem.parentNode.removeChild(this.elem);
@@ -1170,14 +1170,14 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 
 			// ------------------------------------ Manipulation du contenu ------------------------------------
 
-			/** Vide cet élément (détruit tous ses enfants) */
+			/** Vide cet ï¿½lï¿½ment (dï¿½truit tous ses enfants) */
 			empty: function ()
 			{
 				this.elem.innerHTML = "";
 				return this;
 			},
 
-			/** Retourne le contenu plain-text de cet élément (utile sur des éléments comme div ou span, pour le texte d'un input voir getValue) */
+			/** Retourne le contenu plain-text de cet ï¿½lï¿½ment (utile sur des ï¿½lï¿½ments comme div ou span, pour le texte d'un input voir getValue) */
 			getText: function ()
 			{
 				if ('textContent' in this.elem)
@@ -1188,8 +1188,8 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 					throw new Error("Unsupported");
 			},
 
-			/** Assigne le contenu plain-text de cet élément, le texte sera HTML-encodé au besoin
-			 * (utile sur des éléments comme div ou span, pour le texte d'un input voir setValue) 
+			/** Assigne le contenu plain-text de cet ï¿½lï¿½ment, le texte sera HTML-encodï¿½ au besoin
+			 * (utile sur des ï¿½lï¿½ments comme div ou span, pour le texte d'un input voir setValue) 
 			 */
 			setText: function (text)
 			{
@@ -1202,7 +1202,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Retourne le HTML contenu à l'intérieur de cet élement (exclut le tag html de l'élément représenté par this) */
+			/** Retourne le HTML contenu ï¿½ l'intï¿½rieur de cet ï¿½lement (exclut le tag html de l'ï¿½lï¿½ment reprï¿½sentï¿½ par this) */
 			getInnerHTML: function ()
 			{
 				return this.elem.innerHTML;
@@ -1214,7 +1214,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Retourne le HTML de cet élément et son contenu (inclut le tag html de l'élément représenté par this) */
+			/** Retourne le HTML de cet ï¿½lï¿½ment et son contenu (inclut le tag html de l'ï¿½lï¿½ment reprï¿½sentï¿½ par this) */
 			getOuterHTML: function ()
 			{
 				return this.elem.outerHTML;
@@ -1226,14 +1226,14 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Ajoute du contenu plain-text à cet élément, applique du HTML encoding si nécessaire */
+			/** Ajoute du contenu plain-text ï¿½ cet ï¿½lï¿½ment, applique du HTML encoding si nï¿½cessaire */
 			appendText: function (text)
 			{
 				this.elem.appendChild(document.createTextNode(text));
 				return this;
 			},
 
-			/** Ajoute du contenu HTML à cet élément, aucun HTML encoding n'est appliqué */
+			/** Ajoute du contenu HTML ï¿½ cet ï¿½lï¿½ment, aucun HTML encoding n'est appliquï¿½ */
 			appendHTML: function (html)
 			{
 				var frag = document.createDocumentFragment();
@@ -1247,28 +1247,28 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Crée une copie de cet élément */
+			/** Crï¿½e une copie de cet ï¿½lï¿½ment */
 			clone: function ()
 			{
 				return dom.parse(this.elem.outerHTML);
 			},
 
 
-			// ------------------------------------ Événements ------------------------------------
+			// ------------------------------------ ï¿½vï¿½nements ------------------------------------
 
 			/**
-			* Enregistre un callback à un un event. On peut optionnellement passer un dictionnaire de paramètre qui seront accessibles dans la fonction callback.
+			* Enregistre un callback ï¿½ un un event. On peut optionnellement passer un dictionnaire de paramï¿½tre qui seront accessibles dans la fonction callback.
 			* 	elem.on('click', function (event) { ... });
 			* 	elem.on('click', { data: data }, function (event, eventData) { ... });
-			* @return La définition de l'event, qui pourra éventuellement être repassée à la méthode "removeEvent" au besoin
+			* @return La dï¿½finition de l'event, qui pourra ï¿½ventuellement ï¿½tre repassï¿½e ï¿½ la mï¿½thode "removeEvent" au besoin
 			*/
 			on: function (eventType, arg1, arg2)
 			{
 				return dom.on(this.elem, eventType, arg1, arg2);
 			},
 
-			/** Retire un event listener précédemment enregistré par la méthode "on"
-			 * @param eventRef: L'objet retourné par la méthode "on" 
+			/** Retire un event listener prï¿½cï¿½demment enregistrï¿½ par la mï¿½thode "on"
+			 * @param eventRef: L'objet retournï¿½ par la mï¿½thode "on" 
 			 */
 			removeEvent: function (eventRef)
 			{
@@ -1281,7 +1281,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Déclenche artificiellement un événement, e.g. elem.trigger('click') */
+			/** Dï¿½clenche artificiellement un ï¿½vï¿½nement, e.g. elem.trigger('click') */
 			trigger: function (eventName)
 			{
 				if (document.createEvent)
@@ -1301,7 +1301,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 			},
 
 
-			// ------------------------------------ Coordonnées ------------------------------------
+			// ------------------------------------ Coordonnï¿½es ------------------------------------
 
 			getScroll: function ()
 			{
@@ -1323,7 +1323,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Retourne les coordonnées absolues de cet élément (par rapport au coin supérieur gauche du document) et sa taille */
+			/** Retourne les coordonnï¿½es absolues de cet ï¿½lï¿½ment (par rapport au coin supï¿½rieur gauche du document) et sa taille */
 			getBounds: function ()
 			{
 				var rect = this.elem.getBoundingClientRect();
@@ -1339,19 +1339,19 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				};
 			},
 
-			/** Taille de l'elément (au niveau du border) */
+			/** Taille de l'elï¿½ment (au niveau du border) */
 			getWidth: function ()
 			{
 				return this.elem.offsetWidth;
 			},
 
-			/** Taille de l'elément (au niveau du border) */
+			/** Taille de l'elï¿½ment (au niveau du border) */
 			getHeight: function ()
 			{
 				return this.elem.offsetHeight;
 			},
 
-			/** Retourne les coordonnées absolues de cet élément (par rapport au coin supérieur gauche du document) */
+			/** Retourne les coordonnï¿½es absolues de cet ï¿½lï¿½ment (par rapport au coin supï¿½rieur gauche du document) */
 			getCoord: function ()
 			{
 				var bounds = this.elem.getBoundingClientRect();
@@ -1360,15 +1360,15 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return { left: bounds.left + scrollX, top: bounds.top + scrollY };
 			},
 
-			/** Retourne le "offset parent" de cet élement, c'est-à-dire le parent en position:relative ou position:absolute,
-			 * qui est le parent définissant dans quel système de coordonnées cet élément se trouve
+			/** Retourne le "offset parent" de cet ï¿½lement, c'est-ï¿½-dire le parent en position:relative ou position:absolute,
+			 * qui est le parent dï¿½finissant dans quel systï¿½me de coordonnï¿½es cet ï¿½lï¿½ment se trouve
 			 */
 			getOffsetParent: function ()
 			{
 				return new dom.Elem(this.elem.offsetParent);
 			},
 
-			/** Retourne la cordonnée locale de cet élément (cette coordonnée est relative à l'élément "offsetParent")  */
+			/** Retourne la cordonnï¿½e locale de cet ï¿½lï¿½ment (cette coordonnï¿½e est relative ï¿½ l'ï¿½lï¿½ment "offsetParent")  */
 			getRelativeOffset: function ()
 			{
 				return { left: this.elem.offsetLeft, top: this.elem.offsetTop };
@@ -1377,7 +1377,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 
 			// ------------------------------------ Misc ------------------------------------
 
-			/** Retourne si cet élément correspond à un sélecteur CSS, e.g. elem.is('input.MaClasse') */
+			/** Retourne si cet ï¿½lï¿½ment correspond ï¿½ un sï¿½lecteur CSS, e.g. elem.is('input.MaClasse') */
 			is: function (selector)
 			{
 				if (this.elem.mozMatchesSelector)
@@ -1404,7 +1404,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				}
 			},
 
-			/** Met le focus sur cet élément (fonctionne principalement sur des input) */
+			/** Met le focus sur cet ï¿½lï¿½ment (fonctionne principalement sur des input) */
 			focus: function ()
 			{
 				this.elem.focus();
@@ -1447,8 +1447,8 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 
 			/** Cette fonction ne supporte pas l'animation de shorthand CSS
 			  * 	e.g. ne pas animer 'padding', mais animer 'padding-left', etc.
-			  * Pour animer des couleurs, utiliser le format #00000 ou rgb(a), éviter les noms comme "black".
-			  * Le style à animer doit obligatoirement avoir une valeur initiale déjà assignée à l'élément animé.
+			  * Pour animer des couleurs, utiliser le format #00000 ou rgb(a), ï¿½viter les noms comme "black".
+			  * Le style ï¿½ animer doit obligatoirement avoir une valeur initiale dï¿½jï¿½ assignï¿½e ï¿½ l'ï¿½lï¿½ment animï¿½.
 			  *
 			  * elem.animate({
 			  * 	properties: { opacity: 0.0 },
@@ -1456,11 +1456,11 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 			  * 	onCompleteCallback: function () { console.log('Complete'); }
 			  * })
 			  *
-			  * @param {Dictionary} properties - Propriétés CSS ou HTML à animer, avec la valeur cible. Ces propriétés doivent avoir une valeur initiale avant d'appeler animate.
+			  * @param {Dictionary} properties - Propriï¿½tï¿½s CSS ou HTML ï¿½ animer, avec la valeur cible. Ces propriï¿½tï¿½s doivent avoir une valeur initiale avant d'appeler animate.
 			  * @param {String} inteprolation - "swing" ou "linear"
-			  * @param {Function} onCompleteCallback - Fonction callback appelée lorsque l'animation est finie
-			  * @param {Function} onStepCallback - Fonction callback appelée à chaque frame de l'animation
-			  * @param {Dictionary} extensionProperties - Pour animer des propriétés qui ne sont pas supportées "nativement" par cette méthode
+			  * @param {Function} onCompleteCallback - Fonction callback appelï¿½e lorsque l'animation est finie
+			  * @param {Function} onStepCallback - Fonction callback appelï¿½e ï¿½ chaque frame de l'animation
+			  * @param {Dictionary} extensionProperties - Pour animer des propriï¿½tï¿½s qui ne sont pas supportï¿½es "nativement" par cette mï¿½thode
 			  */
 			animate: function (options)
 			{
@@ -1481,7 +1481,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 
 				var specialProperties = {};
 
-				// TODO: d'autres propriétés spéciales à animer?
+				// TODO: d'autres propriï¿½tï¿½s spï¿½ciales ï¿½ animer?
 				if (this.elem == window)
 				{
 					specialProperties['scrollTop'] = {
@@ -1531,7 +1531,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 							val = this._getComputedStyle(key);
 					}
 					if (val === null || val === '')
-						throw new Error("No CSS val :" + key); // Les propriétés à animer doivent avoir une valeur
+						throw new Error("No CSS val :" + key); // Les propriï¿½tï¿½s ï¿½ animer doivent avoir une valeur
 
 					if (val.indexOf && (val.indexOf('#') == 0 || val.indexOf('rgb(') == 0 || val.indexOf('rgba(') == 0))
 					{
@@ -1663,7 +1663,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 					setTimeout(stepAnimation, 1);
 			},
 
-			/** Cas spécial de "animate" pour faire apparaitre un élément par fade-in */
+			/** Cas spï¿½cial de "animate" pour faire apparaitre un ï¿½lï¿½ment par fade-in */
 			fadeIn: function (durationMilli, interpolation, onComplete)
 			{
 				if (durationMilli == null)
@@ -1688,7 +1688,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Cas spécial de "animate" pour faire disparaitre un élément par fade-out */
+			/** Cas spï¿½cial de "animate" pour faire disparaitre un ï¿½lï¿½ment par fade-out */
 			fadeOut: function (durationMilli, interpolation, onComplete)
 			{
 				if (durationMilli == null)
@@ -1709,7 +1709,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Cas spécial de "animate" pour faire apparaitre ou disparaitre un élément par fade-in ou fade-out, selon l'état actuel de l'élément */
+			/** Cas spï¿½cial de "animate" pour faire apparaitre ou disparaitre un ï¿½lï¿½ment par fade-in ou fade-out, selon l'ï¿½tat actuel de l'ï¿½lï¿½ment */
 			fadeToggle: function ()
 			{
 				if (this.getStyle('display') != 'none')
@@ -1719,7 +1719,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Cas spécial de "animate" pour faire apparaitre un élément en animant sa hauteur */
+			/** Cas spï¿½cial de "animate" pour faire apparaitre un ï¿½lï¿½ment en animant sa hauteur */
 			slideDown: function (durationMilli, interpolation)
 			{
 				if (durationMilli == null) durationMilli = 500;
@@ -1749,7 +1749,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Cas spécial de "animate" pour faire disparaitre un élément en animant sa hauteur */
+			/** Cas spï¿½cial de "animate" pour faire disparaitre un ï¿½lï¿½ment en animant sa hauteur */
 			slideUp: function (durationMilli, interpolation)
 			{
 				if (durationMilli == null) durationMilli = 500;
@@ -1775,7 +1775,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Cas spécial de "animate" pour faire apparaitre ou disparaitre un élément en animant sa hauteur, selon son état courant */
+			/** Cas spï¿½cial de "animate" pour faire apparaitre ou disparaitre un ï¿½lï¿½ment en animant sa hauteur, selon son ï¿½tat courant */
 			slideToggle: function ()
 			{
 				if (this.getStyle('display') != 'none')
@@ -1785,7 +1785,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Cas spécial de "animate" pour faire apparaitre un élément en animant son "zoom" */
+			/** Cas spï¿½cial de "animate" pour faire apparaitre un ï¿½lï¿½ment en animant son "zoom" */
 			scaleUp: function (durationMilli, fromScale, toScale)
 			{
 				if (durationMilli == null)
@@ -1811,7 +1811,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 				return this;
 			},
 
-			/** Cas spécial de "animate" pour faire disparaitre un élément en animant son "zoom" */
+			/** Cas spï¿½cial de "animate" pour faire disparaitre un ï¿½lï¿½ment en animant son "zoom" */
 			scaleDown: function (durationMilli, fromScale, toScale)
 			{
 				if (durationMilli == null)
@@ -1838,7 +1838,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		};
 
 	// ----------------------- Classe dom.OfsysDomElemArray -----------------------
-	/** Cette classe est retourné par les méthodes qui sélectionnent 0..n élements, comme "$$.selectAll", et fait des opérations de "batch" uniquement */
+	/** Cette classe est retournï¿½ par les mï¿½thodes qui sï¿½lectionnent 0..n ï¿½lements, comme "$$.selectAll", et fait des opï¿½rations de "batch" uniquement */
 	function OfsysDomElemArray(elems)
 	{
 		this.elems = elems;
@@ -2030,19 +2030,19 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		return true;
 	};
 
-	/** Indique si le navigateur supporte la propriété CSS3 "transform" */
+	/** Indique si le navigateur supporte la propriï¿½tï¿½ CSS3 "transform" */
 	dom.util.supportsTransform = function ()
 	{
 		var e = dom.create('div');
 		return ('transform' in e.elem.style);
 	};
 
-	/** Retourne un timestamp relatif le plus précis possible (ne représente aucun temps absolu, sert à mesurer le temps écoulé
-	 * entre deux appels en prenant la différence)
+	/** Retourne un timestamp relatif le plus prï¿½cis possible (ne reprï¿½sente aucun temps absolu, sert ï¿½ mesurer le temps ï¿½coulï¿½
+	 * entre deux appels en prenant la diffï¿½rence)
 	 */
 	dom.util.getTimeStampForAnimation = function ()
 	{
-		// getTimeStampForAnimation, on prend le timer le plus précis offert par le browser
+		// getTimeStampForAnimation, on prend le timer le plus prï¿½cis offert par le browser
 		if (window.performance && window.performance.now)
 			return window.performance.now();
 		else if (window.performance && window.performance.webkitNow)
@@ -2087,7 +2087,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		return fallbackValue;
 	}
 
-	/** Annule/bloque un événement */
+	/** Annule/bloque un ï¿½vï¿½nement */
 	dom.util.cancelEvent = function (evt)
 	{
 		if (evt.preventDefault)
@@ -2102,8 +2102,8 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		}
 	};
 
-	/** Sur browsers modernes, on a l'événement 'oninput' sur les textbox qui permet de savoir quand le contenu a
-	  * a changé. Cet event n'existe pas sur IE8, et fonctionne mal sur IE9. Cette fonction permet de contourner
+	/** Sur browsers modernes, on a l'ï¿½vï¿½nement 'oninput' sur les textbox qui permet de savoir quand le contenu a
+	  * a changï¿½. Cet event n'existe pas sur IE8, et fonctionne mal sur IE9. Cette fonction permet de contourner
 	  * les bugs des vieux IE et d'avoir un comportement uniforme partout
 	  */
 	dom.util._onInputEventCompatibility = function (input, callback)
@@ -2116,8 +2116,8 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		input.on('keyup', { input: input }, callback);
 	};
 
-	/** Pour IE < 10, rendre un élément et ses enfants non sélectionnables. 
-	 * Pour les browsers modernes, là où supporté, préférer l'utilisation de CSS pour rendre des éléments non selectionnables 
+	/** Pour IE < 10, rendre un ï¿½lï¿½ment et ses enfants non sï¿½lectionnables. 
+	 * Pour les browsers modernes, lï¿½ oï¿½ supportï¿½, prï¿½fï¿½rer l'utilisation de CSS pour rendre des ï¿½lï¿½ments non selectionnables 
 	 */
 	dom.util.makeUnselectable = function (node)
 	{
@@ -2169,22 +2169,22 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		}
 	};
 
-	/** Sélectionne un élément par son ID */
+	/** Sï¿½lectionne un ï¿½lï¿½ment par son ID */
 	dom.id = function (id) { return dom._selectByID(id, document); };
 
-	/** Sélectionne le body */
+	/** Sï¿½lectionne le body */
 	dom.body = function () { return dom.wrap(document.body); };
 
-	/** Sélectionne un élément par sélecteur CSS */
+	/** Sï¿½lectionne un ï¿½lï¿½ment par sï¿½lecteur CSS */
 	dom.select1 = function (selector) { return dom._select1(selector, document); };
 
-	/** Sélectionne 0..n éléments par sélecteur CSS */
+	/** Sï¿½lectionne 0..n ï¿½lï¿½ments par sï¿½lecteur CSS */
 	dom.selectAll = function (selector) { return dom._selectAll(selector, document); };
 
-	/** Sélectionne 0..n éléments par classe CSS */
+	/** Sï¿½lectionne 0..n ï¿½lï¿½ments par classe CSS */
 	dom.selectAllByClass = function (className) { return dom._selectAllByClass(className, document); };
 
-	/** Crée un nouvel élément de DOM, e.g. $$.create('div', { 'id': 'monDiv' }) */
+	/** Crï¿½e un nouvel ï¿½lï¿½ment de DOM, e.g. $$.create('div', { 'id': 'monDiv' }) */
 	dom.create = function (nodeType, attr)
 	{
 		var elem = document.createElement(nodeType);
@@ -2207,7 +2207,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		return domObj;
 	};
 
-	/** Crée un nouvel élément de DOM dans un namespace */
+	/** Crï¿½e un nouvel ï¿½lï¿½ment de DOM dans un namespace */
 	dom.nsCreate = function (namespace, nodeType, attr)
 	{
 		if (document.createElementNS == null)
@@ -2236,8 +2236,8 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		return domObj;
 	};
 
-	/** Crée un objet dom.Elem à partir d'une string contenant un fragment de HTML.
-	* Ce fragment de HTML doit contenir un seul élément à la race.
+	/** Crï¿½e un objet dom.Elem ï¿½ partir d'une string contenant un fragment de HTML.
+	* Ce fragment de HTML doit contenir un seul ï¿½lï¿½ment ï¿½ la race.
 	*/
 	dom.parse = function (html)
 	{
@@ -2248,12 +2248,12 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		return new dom.Elem(temp.firstChild);
 	};
 
-	/** Crée un dom.Elem à partir d'un objet DOM arbitraire */
+	/** Crï¿½e un dom.Elem ï¿½ partir d'un objet DOM arbitraire */
 	dom.wrap = function (elem) { return new dom.Elem(elem); };
 
 	var _isWindowLoaded = false;
 
-	/** Le callback "load" est appelé quand tout est chargé : HTML, images, CSS, scripts. */
+	/** Le callback "load" est appelï¿½ quand tout est chargï¿½ : HTML, images, CSS, scripts. */
 	dom.onLoad = function (callback)
 	{
 		if (_isWindowLoaded)
@@ -2278,7 +2278,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 	else
 		throw new Error("Unsupported");
 
-	/** Le callback "ready" est appelé quand tout le HTML est chargé, mais sans attendre les images, le CSS, le javascript async */
+	/** Le callback "ready" est appelï¿½ quand tout le HTML est chargï¿½, mais sans attendre les images, le CSS, le javascript async */
 	dom.onReady = function (callback)
 	{
 		if (document.readyState == 'complete' || document.readyState == 'interactive')
@@ -2307,7 +2307,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		}
 	};
 
-	/** Enregistre un callback à un événement 
+	/** Enregistre un callback ï¿½ un ï¿½vï¿½nement 
 	* 2 signatures possibles :
 	* on(elem, string eventType, Function callback)
 	* on(elem, string eventType, Dicitonary data, Function callback)
@@ -2333,7 +2333,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 		if (eventType == 'input' && (!('oninput' in elem) || ofsys.util.isIE9OrOlder()))
 		{
 			// onInput n'est pas disponible sur IE8, et fonctionne mal sur IE9
-			// TODO: ce workaround va retourner null et l'événement ne pourra pas être retiré
+			// TODO: ce workaround va retourner null et l'ï¿½vï¿½nement ne pourra pas ï¿½tre retirï¿½
 			return dom.util._onInputEventCompatibility(dom.wrap(elem), fn);
 		}
 
@@ -2476,7 +2476,7 @@ if (window['DI'].dom == null) window['DI'].dom = {};
 })(window['DI'].dom);
 
 
-// NOTE IMPORTANTE: ce fichier n'est pas prévu pour être utilisé seul. Il est prévu pour être inclus dans un package minifié
+// NOTE IMPORTANTE: ce fichier n'est pas prï¿½vu pour ï¿½tre utilisï¿½ seul. Il est prï¿½vu pour ï¿½tre inclus dans un package minifiï¿½
 // Voir /tests/jfcad/WebPushPackage.aspx
 
 // pseudo-namespaces
@@ -2488,7 +2488,7 @@ if (window['DI'].WebPush == null) window['DI'].WebPush = {};
 	"use strict";
 
 	var config = '{config}';
-	var applicationKey = '{applicationKey}';
+	var applicationKey = '6021:C9gAcGRYg2FF8ca46Hl4MVcPRzHxogPO';
 	var strBrowserTypes = '{browserTypes}';
 	var g_debug = false;
 
@@ -2713,7 +2713,7 @@ if (window['DI'].WebPush == null) window['DI'].WebPush = {};
 				console.log('Sending token to server with data: ', data);
 
 			window['DI'].util.net.corsAjax({
-				"url": '{wsdomain}/webservices/ofc4/push.ashx?method=SetToken',
+				"url": 'https://lightspeed.dev.ofsys.com/webservices/ofc4/push.ashx?method=SetToken',
 				"data": JSON.stringify(data),
 				"success": function (responseText)
 				{
