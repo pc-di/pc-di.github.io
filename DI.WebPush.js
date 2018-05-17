@@ -2520,6 +2520,7 @@ if (window['DI'].WebPush == null) window['DI'].WebPush = {};
 
 	function showNotification(payload) 
 	{
+		console.log('DiWebpush showNotification');
 		if (!Notification || Notification.permission !== "granted" || document.hidden)
 			return;
 

@@ -16,6 +16,7 @@ messaging.setBackgroundMessageHandler(function(payload)
 
 function showNotification(payload)
 {
+    console.log('fm-sw showNotification');
     var notificationTitle = payload.data.Title || 'Notification';
     var notificationOptions = {
     };
