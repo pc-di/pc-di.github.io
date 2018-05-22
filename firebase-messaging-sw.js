@@ -6,7 +6,7 @@
  });
 
  const messaging = firebase.messaging();
- const applicationKey = '6021:C9gAcGRYg2FF8ca46Hl4MVcPRzHxogPO';
+ const applicationKey = '5992:QqTabDmZLj1kMmL30EaAwHkU1pI7g2fV';
 
 messaging.setBackgroundMessageHandler(function(payload) 
 {
@@ -16,7 +16,6 @@ messaging.setBackgroundMessageHandler(function(payload)
 
 function showNotification(payload)
 {
-    console.log('fm-sw showNotification');
     var notificationTitle = payload.data.Title || 'Notification';
     var notificationOptions = {
     };
