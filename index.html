@@ -16,26 +16,16 @@
 			<input type="button" id="btnRequestPermission" value="request permission"/>
 		</div>
 		<div>
+			<input type="button" id="btnGetToken" value="get token"/>
+		</div>
+		<!-- <div>
 			<input type="text" id="txtContact" style="width: 300px;"/>
 			<input type="button" id="btnRequestContact" value="associer contact" />
-		</div>
+		</div> -->
 	</body>
 	<script>
 		document.querySelector('#btnRequestPermission').addEventListener('click', RequestPermission);
-
-		function RequestPermission()
-		{
-			// Retrieve Firebase Messaging object.
-			const messaging = firebase.messaging();
-
-			messaging.requestPermission().then(function() {
-				console.log('Notification permission granted.');
-				// TODO(developer): Retrieve an Instance ID token for use with FCM.
-				// ...
-			}).catch(function(err) {
-				console.log('Unable to get permission to notify.', err);
-			});
-		}
+		document.querySelector('#btnGetToken').addEventListener('click', GetToken);
 
 		// Initialize Firebase
 		var config = {
@@ -46,8 +36,48 @@
 			storageBucket: "pcdi-ef90a.appspot.com",
 			messagingSenderId: "327170440058"
 		};
+
 		firebase.initializeApp(config);
 
+		const messaging = firebase.messaging();
+
+		function RequestPermission()
+		{
+			// Retrieve Firebase Messaging object.
+
+			messaging.requestPermission().then(function() {
+				console.log('Notification permission granted.');
+				// TODO(developer): Retrieve an Instance ID token for use with FCM.
+				// ...
+			}).catch(function(err) {
+				console.log('Unable to get permission to notify.', err);
+			});
+		}
+
+		function GetToken()
+		{
+			// Get Instance ID token. Initially this makes a network call, once retrieved
+			// subsequent calls to getToken will return from cache.
+			messaging.getToken().then(function(currentToken) {
+			if (currentToken) {
+				// sendTokenToServer(currentToken);
+				// updateUIForPushEnabled(currentToken);
+				console.log(currentToken);
+			} else {
+				// Show permission request.
+				console.log('No Instance ID token available. Request permission to generate one.');
+				// Show permission UI.
+				// updateUIForPushPermissionRequired();
+				// setTokenSentToServer(false);
+			}
+			}).catch(function(err) {
+			console.log('An error occurred while retrieving token. ', err);
+			// showToken('Error retrieving Instance ID token. ', err);
+			// setTokenSentToServer(false);
+			});
+		}
+
+		
 		
 		
 	</script>
