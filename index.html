@@ -1,13 +1,54 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset=utf-8 />
 		<link rel="manifest" href="manifest.json" />
+		
 		<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-messaging.js"></script>
-		<script src="DI.WebPush-1.0.min.js"></script>
 	</head>
 	<body>
 		Test - minifié<br />
-		<a href="Demo-Notification-Web.html" >Demo</a>
+		<div>
+			<a href="Demo-Notification-Web.html" >Demo</a>
+		</div>
+		<div>
+			<input type="button" id="btnRequestPermission" value="request permission"/>
+		</div>
+		<div>
+			<input type="text" id="txtContact" style="width: 300px;"/>
+			<input type="button" id="btnRequestContact" value="associer contact" />
+		</div>
 	</body>
+	<script>
+		document.querySelector('#btnRequestPermission').addEventListener('click', RequestPermission);
+
+		function RequestPermission()
+		{
+			// Retrieve Firebase Messaging object.
+			const messaging = firebase.messaging();
+
+			messaging.requestPermission().then(function() {
+				console.log('Notification permission granted.');
+				// TODO(developer): Retrieve an Instance ID token for use with FCM.
+				// ...
+			}).catch(function(err) {
+				console.log('Unable to get permission to notify.', err);
+			});
+		}
+
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyDucwGZV42Ih083a90iX9fplqs-bdAMjqE",
+			authDomain: "pcdi-ef90a.firebaseapp.com",
+			databaseURL: "https://pcdi-ef90a.firebaseio.com",
+			projectId: "pcdi-ef90a",
+			storageBucket: "pcdi-ef90a.appspot.com",
+			messagingSenderId: "327170440058"
+		};
+		firebase.initializeApp(config);
+
+		
+		
+	</script>
 </html>
